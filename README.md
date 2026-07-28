@@ -115,3 +115,26 @@ git push --set-upstream origin main
 git push
 ```
 
+## Add code to python files in app/ and tests/ ##
+
+**Add to app/:**
+
+`calculation.py`
+`calculator_config.py`
+`calculator_memento.py`
+`calculator_repl.py`
+`calculator.py`
+`exceptions.py`
+`history.py`
+`input_validators.py`
+`operations.py`
+
+**Add to tests/:**
+
+`test_calculation.py`
+`test_calculator.py`
+`test_config.py`
+`test_exceptions.py`
+`test_history.py`
+`test_operations.py`
+`test_validators.py`

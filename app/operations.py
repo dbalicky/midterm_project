@@ -161,7 +161,7 @@ class Power(Operation):
         If validation succeeds, returns the exponetiation of x and y.
         """
         self.validate_operands(x,y)
-        return x ** y
+        return DEC(pow(float(x), float(y)))
     
 class Root(Operation):
     """
@@ -193,7 +193,7 @@ class Root(Operation):
         If validation succeeds, returns the y-th root of x.
         """
         self.validate_operands(x,y)
-        return x ** (DEC("1") / y)
+        return DEC(pow(float(x), 1 / float(y)))
     
 class Modulus(Operation):
     """
@@ -223,7 +223,7 @@ class Modulus(Operation):
         If validation succeeds, returns the remainder of operand x divided by operand y.
         """
         self.validate_operands(x,y)
-        return x % y
+        return DEC(x % y)
     
 class IntegerDivision(Operation):
     """

@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from decimal import Decimal as DEC
 from typing import Dict
-from exceptions import ValidationError
+from app.exceptions import ValidationError
 
 
 class Operation(ABC):
@@ -354,5 +354,5 @@ class OperationFactory:
         """
         operation_class = cls._operations.get(operation_type.lower())
         if not operation_class:
-            raise ValueError(f"Unkown operation: {operation_type}")
+            raise ValueError(f"Unknown operation: {operation_type}")
         return operation_class()

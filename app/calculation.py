@@ -59,7 +59,7 @@ class Calculation:
         # Retreive oprations function based on operation name
         op = operations.get(self.operation)
         if not op:
-            raise OperationError(f"Unkown operation: {self.operation}")
+            raise OperationError(f"Unknown operation: {self.operation}")
 
         try:
             # Execute operation with the operands

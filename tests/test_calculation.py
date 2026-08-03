@@ -27,7 +27,7 @@ def test_division():
 
 
 def test_division_by_zero():
-    with pytest.raises(OperationError, match="Division by zero is not allowed"):
+    with pytest.raises(OperationError, match="Error: Cannot divide by zero"):
         Calculation(operation="Division", operand1=Decimal("8"), operand2=Decimal("0"))
 
 
@@ -37,7 +37,7 @@ def test_power():
 
 
 def test_negative_power():
-    with pytest.raises(OperationError, match="Negative exponents are not supported"):
+    with pytest.raises(OperationError, match="Error: Cannot raise zero to the power of a negative number"):
         Calculation(operation="Power", operand1=Decimal("2"), operand2=Decimal("-3"))
 
 
@@ -47,7 +47,7 @@ def test_root():
 
 
 def test_invalid_root():
-    with pytest.raises(OperationError, match="Cannot calculate root of negative number"):
+    with pytest.raises(OperationError, match="Error: Cannot take the root of a negative number"):
         Calculation(operation="Root", operand1=Decimal("-16"), operand2=Decimal("2"))
 
 

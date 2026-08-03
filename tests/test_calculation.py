@@ -50,6 +50,33 @@ def test_invalid_root():
     with pytest.raises(OperationError, match="Error: Cannot take the root of a negative number"):
         Calculation(operation="Root", operand1=Decimal("-16"), operand2=Decimal("2"))
 
+def test_modulus():
+    calc = Calculation(operation="Modulus", operand1=Decimal("15"), operand2=Decimal("4"))
+    assert calc.result == Decimal("3")
+
+def test_modulus_divisor_zero():
+    with pytest.raises(OperationError, match="Error: Cannot find remainder of a number divided by zero"):
+        Calculation(operation="Modulus", operand1=Decimal("13"), operand2=Decimal("0"))
+
+def test_integer_division():
+    calc = Calculation(operation="IntegerDivision", operand1=Decimal("12"), operand2=Decimal("5"))
+    assert calc.result == Decimal("2")
+
+def test_integer_divison_by_zero():
+    with pytest.raises(OperationError, match="Error: Cannot divide by zero"):
+        Calculation(operation="IntegerDivision", operand1=Decimal("16"), operand2=Decimal("0"))
+
+def test_percentage():
+    calc = Calculation(operation="Percentage", operand1=Decimal("15"), operand2=Decimal("20"))
+    assert calc.result == Decimal("75")
+
+def test_percentage_over_zero():
+    with pytest.raises(OperationError, match="Error: Cannot divide by zero"):
+        Calculation(operation="Percentage", operand1=Decimal("4"), operand2=Decimal("0"))
+
+def test_absolute_difference():
+    calc = Calculation(operation="AbsoluteDifference", operand1=Decimal("7"), operand2=Decimal("20"))
+    assert calc.result == Decimal("13")
 
 def test_unknown_operation():
     with pytest.raises(OperationError, match="Unknown operation"):
